@@ -1,6 +1,6 @@
 extends layout
 block content
-    form.form-horizontal
+    form.form-horizontal(action="/dologin", method="post")
         fieldset
             legend 用户登录
             div.control-group
@@ -14,3 +14,6 @@ block content
                     input#password.input-xlarge(type="password" , name="password")
             div.form-actions
                 button.btn.btn-primary(type="submit") 登录
+            -if (error)
+                h5 #{error}
+

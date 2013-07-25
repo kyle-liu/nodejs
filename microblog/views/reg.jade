@@ -3,6 +3,8 @@ block content
 
     form.form-horizontal(method="post",action="/doreg")
         fieldset
+            -if (error)
+                div.alert-error #{error}
             legend 用户注册
             div.control-group
                 label.control-label(for="username") 用户名
@@ -14,9 +16,9 @@ block content
                 div.controls
                     input#password.input-xlarge(type="password" , name="password")
             div.control-group
-                label.control-label(for="重复输入口令") 重复输入口令
+                label.control-label(for="password-repeat") 重复输入口令
                 div.controls
-                    input#password-repeat.input-xlarge(type="password")
+                    input#password-repeat.input-xlarge(type="password", name= "password-repeat")
             div.form-actions
                 button.btn.btn-primary(type="submit") 注册
-            h3 #{message}
+

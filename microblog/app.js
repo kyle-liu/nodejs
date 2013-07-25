@@ -21,11 +21,8 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
-//express plugin settings
-//app.configure("all", function() {
-//
-//
-//});
+
+
 
 app.use(express.favicon());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -41,31 +38,29 @@ app.use(express.session({
     })
 }));
 app.use(flash());
+
+app.use(function (req, res, next) {
+    res.locals.user = req.session.user;
+    /**
+     * req.flash用于两次请求之间传值，将值放入session
+     * 但是再第二次请求过来，第一次读取后就从session中删除
+     */
+    var error =  req.flash("error");
+    res.locals.error = error.length ? error : null;
+    var success = req.flash("success");
+
+    res.locals.success = success.length ? success : null;
+    next();
+});
+
 app.use(app.router);
-
-
-//custom plugin test
-//app.use(count);
-//
-//function count(req,res){
-//
-//    req.session.count =  req.session.count() || 0;
-//    var n =  rWzeq.session.count++;
-//    res.send("viewed " + n +" times \n");
-//}
-
-
-// development only
-//if ('development' == app.get('env')) {
-//    app.use(express.errorHandler());
-//}
 
 
 app.get('/', routes.index); //首页
 app.get('/reg', user.reg); //注册页
 app.post('/doreg', user.doReg);//注册
 app.get('/login', user.login);//登录页
-app.post('/dologin', user.login);//登录
+app.post('/dologin', user.doLogin);//登录
 app.post("/post", user.post); //发布微博
 app.get("/logout", user.logout); //登出
 

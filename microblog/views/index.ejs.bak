@@ -1,2 +1,0 @@
-<% layout('layout') -%>
-This is loaded from a partial.aa

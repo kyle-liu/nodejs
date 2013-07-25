@@ -1,6 +1,10 @@
 extends  layout
 block content
     div.hero-unit
+        -if (success)
+            h5(color="red") #{success}
+        -if (error)
+            div.alert-error #{error}
         h1 欢迎来到Microblog
         p Microblog 是一个基于 Node.js 的微博系统
         p
