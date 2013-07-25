@@ -1,0 +1,2 @@
+check:
+	@echo 'hello world'

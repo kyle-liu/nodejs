@@ -10,6 +10,7 @@
  */
 var hello1 = require("./module");
 
+
 hello1.setName("BYVoid");
 
 var hello2 = require("./module");

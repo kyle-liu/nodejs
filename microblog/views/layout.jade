@@ -1,0 +1,35 @@
+doctype
+html
+    head
+        title #{title}
+        link(rel="stylesheet", href="/stylesheets/bootstrap.css")
+        link(rel="stylesheet", href="/stylesheets/bootstrap-responsive.css")
+    body
+        div.navbar.navbar-fixed-top
+            div.navbar-inner
+                div.container
+                    a.btn.btn-navbar
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.brand(href="/") Microblog
+                    div.nav-collapse
+                        ul.nav
+                            li.active
+                                a(href="/") 首页
+                            li
+                                a(href="/login") 登录
+                            li
+                                a(href="/reg") 注册
+
+        div#container.container
+            block content
+        hr
+        footer
+            p
+                a(href="wwww.google.com",target="_blank") copyright@canhun
+    -body
+        script(src="/javascripts/jquery.js")
+        script(scr="/javascripts/bootstrap.js")
+
+

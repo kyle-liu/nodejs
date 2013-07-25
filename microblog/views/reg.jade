@@ -1,0 +1,22 @@
+extends layout
+block content
+
+    form.form-horizontal(method="post",action="/doreg")
+        fieldset
+            legend 用户注册
+            div.control-group
+                label.control-label(for="username") 用户名
+                div.controls
+                    input#username.input-xlarge(type="text", name="username")
+                    p.help-block 你的账户名称，用户登录和显示
+            div.control-group
+                label.control-label(for="password") 口令
+                div.controls
+                    input#password.input-xlarge(type="password" , name="password")
+            div.control-group
+                label.control-label(for="重复输入口令") 重复输入口令
+                div.controls
+                    input#password-repeat.input-xlarge(type="password")
+            div.form-actions
+                button.btn.btn-primary(type="submit") 注册
+            h3 #{message}

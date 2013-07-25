@@ -1,12 +1,14 @@
 {
-  "name": "byvoidmoudle",
+  "name": "hsf-demo",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "BSD"
+  "author": "kyle",
+  "license": "BSD",
+  "devDependencies":{
+      "hsf":"~0.7.27"
+  }
 }
-
