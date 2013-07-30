@@ -1,9 +1,10 @@
 {
-  "name": "lib-rar",
+  "name": "mocha-demo",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
     "mocha": "*",
-    "jscover": "*"
+    "jscover": "*",
+    "should": "*"
   }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "mocha-demo",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "mocha": "*",
+        "jscover": "*",
+        "supertest": "*",
+        "should": "*",
+        "express": "*",
+        "mm": "*",
+        "pasre": "*"
+    }
+}
