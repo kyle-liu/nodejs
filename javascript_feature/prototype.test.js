@@ -5,7 +5,7 @@ function Person() {
     this.age = 30;
 
     this.sayName = function () {
-        console.log("my name");
+        console.log("my name " + this.name);
     }
 
 }
@@ -79,7 +79,7 @@ describe('对象原型 ', function () {
     });
 
 
-    it('在function中直接定义的方法，在每个对象实例上其实指向的是不同的对象实例', function () {
+    it('在function中直接定义的方法，在每个对象实例上的方法其实指向的是不同的function实例', function () {
 
         var p3 = new Person();
         var p4 = new Person();
@@ -100,16 +100,30 @@ describe('对象原型 ', function () {
         p1.saySex.should.equal(p2.saySex);
     });
 
-    it('通过原型增加方法时,其该类所有的实例都拥有该方法，且所有的对象实例的方法都指向原型上的方法', function () {
-        Person.prototype.saySex = function () {
-            console.log(this.name + ' is ' + this.sex);
+    it('通过对象实例增加方法时,只是该对象实例拥有此方法，其他对象实例和原型不受任何影响', function () {
+
+        p1.song = function song() {
+
+            console.log('I songing');
         }
-        should.exist(Person.prototype.saySex);
-        should.exist(p1.saySex);
-        should.exist(p2.saySex);
-        p1.saySex.should.equal(Person.prototype.saySex);
+        should.exist(p1.song);
+        should.not.exist(p2.song);
+        should.not.exist(Person.prototype.song);
+    });
+
+
+    it('修改对象实例与原型同名的方法时只会在该对象上屏蔽与原型同名的方法，其他对象实例和原型不受任何影响', function () {
+
+        p1.saySex = function () {
+
+            console.log('p1 is saySex');
+
+        }
+        p1.saySex.should.not.equal(Person.prototype.saySex);
+        p1.saySex.should.not.equal(p2.saySex);
         p2.saySex.should.equal(Person.prototype.saySex);
-        p1.saySex.should.equal(p2.saySex);
+
+
     });
 
 

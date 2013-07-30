@@ -1,9 +1,10 @@
-var mongodb = require("./db");
+var mongodb = require('./db');
 
 function User(user) {
     this.name = user.name;
     this.password = user.password;
 }
+
 
 module.exports = User;
 
@@ -20,13 +21,13 @@ User.prototype.save = function save(callback) {
         }
 
         //读取users集合
-        db.collection("users", function(err, collection) {
+        db.collection('users', function(err, collection) {
             if(err) {
                 mongodb.close();
                 return callback(err);
             }
             //为name属性添加索引
-          //  collection.ensureIndex("name", {unique: true});
+          //  collection.ensureIndex('name', {unique: true});
             //写入user文档
             collection.insert(user , {safe: true}, function(err, user) {
                 mongodb.close();
@@ -45,7 +46,7 @@ User.get = function get(username, callback){
 
         }
 
-        db.collection("users" , function(err , collection) {
+        db.collection('users' , function(err , collection) {
            if(err) {
                mongodb.close();
                return callback(err);

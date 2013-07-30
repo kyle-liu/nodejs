@@ -1,4 +1,4 @@
-var assert = require("assert")
+var assert = require("assert");
 
 
 describe('Array', function(){
@@ -23,4 +23,5 @@ describe('Array', function(){
           [1,2,3].indexOf(4).should.equal(-1);
         });
       });
-})
+});
+

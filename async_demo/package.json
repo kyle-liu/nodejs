@@ -7,8 +7,7 @@
         "jscover": "*",
         "supertest": "*",
         "should": "*",
-        "express": "*",
         "mm": "*",
-        "pasre": "*"
+        "async" :"*"
     }
 }
