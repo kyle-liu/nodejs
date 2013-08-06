@@ -9,6 +9,7 @@
         "mocha": "*",
         "jscover": "*",
         "supertest": "*",
-        "should": "*"
+        "should": "*",
+        "underscore": "*"
     }
 }

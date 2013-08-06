@@ -126,6 +126,22 @@ describe('对象原型 ', function () {
 
     });
 
+    it('', function () {
+
+        function Person2() {
+
+        }
+        Person.newMethod =  function (){
+
+            console.log('my name is newMethod');
+        }
+        console.log(typeof(Person2.prototype));
+        console.log(typeof(Person2.prototype.constructor));
+        console.log(Person2.prototype.constructor === Person2);
+        Person.prototype.constructor.newMethod();
+        var foo3 = new Person();
+       // foo3.newMethod();
+    });
 
 });
 
